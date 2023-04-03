@@ -68,15 +68,14 @@ session_start();
             required
           />
         </fieldset>
-        <span class="hasAccount"
-          >Já possui uma conta? <a href="index.php">Clique aqui</a> e faça seu
-          login</span>
-        
-          <button type="submit">Cadastrar</button>
-      
+
+        <footer>
+          <span class="hasAccount"
+            >Já possui uma conta? <a href="index.php">Clique aqui</a> e faça seu
+            login</span>
+            <button type="submit">Cadastrar</button>
+        </footer>
       </form>
-
-
     </div>
   </body>
 </html>

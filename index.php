@@ -15,6 +15,7 @@ session_start();
     <div class="container">
       
       <h1>Faça seu login</h1>
+
       <?php
          if(isset($_SESSION['nao_autenticado'])):
          ?>
@@ -25,6 +26,7 @@ session_start();
           endif;
           unset($_SESSION['nao_autenticado']);
           ?>
+      
       <form action="login.php" method="POST">
         <fieldset>
           <legend>Email:*</legend>
@@ -40,16 +42,14 @@ session_start();
             minlength="3"
             required
           />
-        </fieldset>        
-        <span class="hasAccount"
-          >Não possui cadastro? <a href="cadastro.php">Cadastre-se</a></span>
-
-        <button type="submit">ENTRAR</button>
+        </fieldset>      
+        
+        <footer>
+          <span class="hasAccount"
+            >Não possui cadastro? <a href="cadastro.php">Cadastre-se</a></span>
+          <button type="submit">Entrar</button>
+        </footer>
       </form>
-
-      <footer>
-
-      </footer>
     </div>
   </body>
 </html>
