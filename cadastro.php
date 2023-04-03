@@ -19,8 +19,7 @@ session_start();
     if(isset($_SESSION['status_cadastro'])):
     ?>
     <div class="sucesso-verde">
-      <p>Cadastro efetuado!</p>
-      <p>Faça login informando o seu usuário e senha <a href="login.php">aqui</a></p>
+      <p>Cadastro efetuado com sucesso!</p>
     </div>
     <?php 
     
@@ -32,7 +31,7 @@ session_start();
     if(isset($_SESSION['usuario_existe'])):
     ?>
     <div class="notificacao-azul">
-        <p>O usuário escolhido já existe. Informe outro e tente novamente.</p>
+        <p>Ops... Já existe um usuário cadastrado para o e-mail informado. Por favor, altere os dados e tente novamente.</p>
     </div>
     <?php 
     endif;
