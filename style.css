@@ -21,7 +21,7 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 16px;
-    padding: 60px 80px;  
+    padding: 60px 80px;
     background: #FFFFFF;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
@@ -39,10 +39,13 @@ h1 {
 form {
     display: grid;
     justify-content: center;
-    
+
     gap: 28px;
 }
-h2, legend, span {
+
+h2,
+legend,
+span {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -55,9 +58,12 @@ fieldset {
     border: 1px solid #8B4726;
     padding: 8px;
 }
-fieldset:hover, fieldset:focus {
+
+fieldset:hover,
+fieldset:focus {
     border: 1px solid #E6BEAE;
 }
+
 input {
     border: none;
     outline: none;
@@ -68,8 +74,9 @@ input {
 
     padding: 0 8px;
     font-size: 20px;
-    
+
 }
+
 input[type=date] {
     color: #ccc;
     cursor: pointer;
@@ -86,10 +93,11 @@ footer {
 
 a {
     font-weight: bold;
-    color: #8B4726; 
+    color: #8B4726;
     position: relative;
     text-decoration: none;
 }
+
 a:after {
     width: 100%;
     content: "";
@@ -101,6 +109,7 @@ a:after {
     transform: scale(0);
     transition: transform 0.3s;
 }
+
 a:hover:after {
     transform: scale(1);
 }
@@ -108,7 +117,7 @@ a:hover:after {
 button {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 
     width: 250px;
     height: 48px;
@@ -119,29 +128,31 @@ button {
     font-size: 20px;
 
     background: #B2967D;
-    border-radius: 8px; 
+    border-radius: 8px;
     border: none;
 
     cursor: pointer;
     z-index: 1;
 }
+
 button:after {
     content: "";
     position: absolute;
     z-index: -1;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
 
     width: 0;
     height: 48px;
-    
+
     background-color: #8B4726;
-    border-radius: 8px; 
+    border-radius: 8px;
 
     transition: all 0.3s ease;
 }
+
 button:hover:after {
     width: 250px;
 }
@@ -151,15 +162,18 @@ button:hover:after {
     body {
         padding: 32px;
     }
+
     .container {
         text-align: center;
         padding: 40px 32px;
     }
+
     fieldset {
         text-align: initial;
     }
 
-    footer, form {
+    footer,
+    form {
         gap: 16px;
     }
 }
