@@ -145,3 +145,21 @@ button:after {
 button:hover:after {
     width: 250px;
 }
+
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 32px;
+    }
+    .container {
+        text-align: center;
+        padding: 40px 32px;
+    }
+    fieldset {
+        text-align: initial;
+    }
+
+    footer, form {
+        gap: 16px;
+    }
+}
