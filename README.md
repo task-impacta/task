@@ -50,6 +50,7 @@ Para a entrega da Sprint 3, estamos considerando as funcionalidades (front-end, 
 
 - Deletar tarefa
 - Editar tarefa
+- Marcar tarefa como concluída
 
 ## SPRINT 4
 
