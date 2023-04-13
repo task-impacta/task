@@ -53,6 +53,6 @@ Para a entrega da Sprint 3, estamos considerando as funcionalidades (front-end, 
 
 ## SPRINT 4
 
-Para a entrega da Sprint 2, estamos considerando as funcionalidades (front-end, back-end e banco de dados):
+Para a entrega da Sprint 4, estamos considerando as funcionalidades (front-end, back-end e banco de dados):
 
 - Projeto 100% concluído
