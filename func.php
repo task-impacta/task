@@ -117,7 +117,7 @@
         $conn = connectdatabase();
         $sql = "SELECT * FROM tarefas WHERE fk_user = '".$fk_user."'";
         
-        ## "SELECT fk_user FROM usuario INNER JOIN ";
+        ## "SELECT fk_user FROM usuario INNER JOIN tarefas ";
 
 
         $result = mysqli_query($conn, $sql);
