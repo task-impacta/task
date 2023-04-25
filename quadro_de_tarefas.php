@@ -32,22 +32,66 @@ if(!loggedin()){
     <div class="content">
         <header class="card-header">
             <h2>Olá, <?php echo $_SESSION['nome']; ?>! O que você quer fazer hoje? </h2>
-        <?php
-        echo "<center id='usuario'></center>";
-            if(isset($_POST['add_task']))
-	    {
-	    if(!empty($_POST['new-task']))
-	    {
-	        addTodoItem($_SESSION['nome'], $_POST['new-task']);
-	        header("Refresh:0");   
-	    }
-	    }
-        ?>
-            <form action="quadro_de_tarefas.php" method="POST">
+
+            <form method="POST">
                 <input type="text" name="tarefa" class="new-task" placeholder="Escreva o que você quer fazer..." />
                 <button type="submit" value="incluir" class="add-task">Criar tarefa</button>
             </form>
         </header>
+        <article class="card-content">
+            <div>
+                <h2 class="card-content-title">LISTA DE TAREFAS A FAZER:</h2>
+            </div>
+            <div>
+                <div class="card-content-task">
+                    <div class="card-content-task-message">
+                        <label>Ir a academia</label>
+                    </div>
+                    <div class="card-content-task-icon">
+                        <input type="checkbox" class="checkbox-round" />
+                        <img class="img-trash" src="C:\Users\jrica\Downloads\HTML_Ricardo\trash_icon.svg">
+                        <img class="img-pencil" src="C:\Users\jrica\Downloads\HTML_Ricardo\pencil_write_icon.svg">
+                    </div>
+                </div>
+
+                <div class="card-content-task">
+                    <div class="card-content-task-message">
+                        <label>Estudar</label>
+                    </div>
+                    <div class="card-content-task-icon">
+                        <input type="checkbox" class="checkbox-round" />
+                        <img class="img-trash" src="C:\Users\jrica\Downloads\HTML_Ricardo\trash_icon.svg">
+                        <img class="img-pencil" src="C:\Users\jrica\Downloads\HTML_Ricardo\pencil_write_icon.svg">
+                    </div>
+                </div>
+
+                <div class="card-content-task">
+                    <div class="card-content-task-message">
+                        <label>Ler um livro</label>
+                    </div>
+                    <div class="card-content-task-icon">
+                        <input type="checkbox" class="checkbox-round" />
+                        <img class="img-trash" src="C:\Users\jrica\Downloads\HTML_Ricardo\trash_icon.svg">
+                        <img class="img-pencil" src="C:\Users\jrica\Downloads\HTML_Ricardo\pencil_write_icon.svg">
+                    </div>
+                </div>
+
+                <div class="card-content-task">
+                    <div class="card-content-task-message">
+                        <label>Escutar podcast</label>
+                    </div>
+                    <div class="card-content-task-icon">
+                        <input type="checkbox" class="checkbox-round" />
+                        <img class="img-trash" src="C:\Users\jrica\Downloads\HTML_Ricardo\trash_icon.svg">
+                        <img class="img-pencil" src="C:\Users\jrica\Downloads\HTML_Ricardo\pencil_write_icon.svg">
+                    </div>
+                </div>
+
+
+
+            </div>
+        </article>
+
     </div>
 
 </body>
