@@ -3,9 +3,18 @@ session_start();
 include('conexao.php');
 include('verifica_login.php');
 include('func.php');
+
 if (!loggedin()) {
     header("location:login.php");
 }
+
+if (isset($_POST['addtask'])) {
+    if (!empty($_POST['tarefa'])) {
+        addTodoItem($_SESSION['fk_user'], $_POST['tarefa']);
+        header("Refresh:0");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -33,14 +42,14 @@ if (!loggedin()) {
 
             <form method="POST">
                 <input type="text" name="tarefa" class="new-task" placeholder="Escreva o que você quer fazer..." />
-                <button type="submit" value="incluir" class="add-task">Criar tarefa</button>
+                <button type="submit" value="incluir" name="addtask" class="add-task">Criar tarefa</button>
             </form>
         </header>
         <article class="card-content">
             <h2 class="card-content-title">Lista de tarefas a fazer:</h2>
 
             <div class="card-content-task">
-                <label>Ir a academia</label>
+                <label>teste</label>
                 <div class="card-content-task-icon">
                     <input type="checkbox" class="checkbox-round" />
                     <button class="btn-icon">
@@ -58,7 +67,7 @@ if (!loggedin()) {
 </body>
 
 </html>
+
 <?php
-$fk_user = $_SESSION['fk_user'];
-getTodoItems($fk_user);
+getTodoItems($_SESSION['fk_user']);
 ?>
