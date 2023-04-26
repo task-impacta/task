@@ -9,7 +9,7 @@ if (isset($_POST['Delete'])) {
     }
 } else if (isset($_POST['Save'])) {
     $conn = connectdatabase();
-    $sql = "UPDATE quadro_de_tarefas.tarefas SET finalizado = 'nao";
+    $sql = "UPDATE tarefas SET finalizado = 'nao";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 
@@ -117,25 +117,56 @@ function getTodoItems($fk_user)
 
     $result = mysqli_query($conn, $sql);
 
+
     if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<span>" . $row['tarefa'] . "</span>";
+        while ($row = mysqli_fetch_assoc($result)) { ?>
 
-            echo "<form method='POST'>";
-            if ($row['finalizado'] == "sim") {
+            <div class="card-content-task">
+                <?php
+                if ($row['finalizado'] == "sim") { ?>
+                    <label class="finish"><?php echo $row['tarefa']; ?></label>
+                <?php
+                } else { ?>
+                    <label><?php echo $row['tarefa']; ?></label>
+                <?php } ?>
+
+                <div class="card-content-task-icon">
+                    <?php
+                    if ($row['finalizado'] == "sim") {
+                        echo "<input type='checkbox' checked class='checkbox-round' name='check_list[]' value='" . $row["id_tarefa"] . "'>";
+                    } else {
+                        echo "<input type='checkbox' class='checkbox-round' name='check_list[]' value='" . $row["id_tarefa"] . "'>";
+                    }
+                    ?>
+                    <button class="btn-icon" type='submit' name='Delete' value='Deletar'>
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn-icon">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- echo "<form method='POST'>";
+                echo "<label>" . $row['tarefa'] . "</label>";
+                if ($row['finalizado'] == "sim") {
                 echo "<input type='checkbox' checked class='largerCheckbox' name='check_list[]' value='" . $row["id_tarefa"] . "'>";
-            } else {
+                } else {
                 echo "<input type='checkbox' class='largerCheckbox' name='check_list[]' value='" . $row["id_tarefa"] . "'>";
-            }
+                }
 
-            echo "<input type='submit' name='Delete' value='Deletar'/>";
-            echo "<input type='submit' name='Save' value='Concluir'/>";
+                echo "<input type='submit' name='Delete' value='Deletar' />";
+                echo "<input type='submit' name='Save' value='Concluir' />";
 
-            echo "</form>";
+                echo "</form>"; -->
+<?php
         }
+        return $row;
     };
     mysqli_close($conn);
 }
+
 
 
 function addTodoItem($fk_user, $todo_text)
@@ -149,7 +180,7 @@ function addTodoItem($fk_user, $todo_text)
 function deleteTodoItem($fk_user, $todo_id)
 {
     $conn = connectdatabase();
-    $sql = "DELETE FROM quadro_de_tarefas.tarefas WHERE id_tarefa = " . $todo_id . " and fk_user = '" . $fk_user . "';";
+    $sql = "DELETE FROM tarefas WHERE id_tarefa = " . $todo_id . " and fk_user = '" . $fk_user . "';";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 }
@@ -157,7 +188,8 @@ function deleteTodoItem($fk_user, $todo_id)
 function updateDone($todo_id)
 {
     $conn = connectdatabase();
-    $sql = "UPDATE quadro_de_tarefas.tarefas SET finalizado = 'sim' WHERE (id_tarefa = '" . $todo_id . "');";
+    $sql = "UPDATE tarefas SET finalizado = 'sim' WHERE (id_tarefa = '" . $todo_id . "');";
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 }
+?>

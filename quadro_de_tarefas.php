@@ -47,27 +47,11 @@ if (isset($_POST['addtask'])) {
         </header>
         <article class="card-content">
             <h2 class="card-content-title">Lista de tarefas a fazer:</h2>
-
-            <div class="card-content-task">
-                <label>teste</label>
-                <div class="card-content-task-icon">
-                    <input type="checkbox" class="checkbox-round" />
-                    <button class="btn-icon">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                    <button class="btn-icon">
-                        <i class="fas fa-pen"></i>
-                    </button>
-                </div>
-            </div>
+            <?php
+            getTodoItems($_SESSION['fk_user']);
+            ?>
         </article>
-
     </div>
-
 </body>
 
 </html>
-
-<?php
-getTodoItems($_SESSION['fk_user']);
-?>
