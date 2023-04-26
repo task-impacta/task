@@ -187,3 +187,6 @@ label {
     font-style: italic;
     color: #ccc;
 }
+.disabled {
+    color: #ccc !important;
+}

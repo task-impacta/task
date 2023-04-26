@@ -73,6 +73,7 @@ function getTodoItems($fk_user)
                         <?php
                         if ($row['finalizado'] == "sim") { ?>
                             <a href="quadro_de_tarefas.php?unfineshed=<?php echo $row['id_tarefa'] ?>"><i class="fas fa-check-circle"></i></a>
+
                         <?php
                         } else { ?>
                             <a href="quadro_de_tarefas.php?finish=<?php echo $row['id_tarefa'] ?>"><i class="far fa-circle"></i></a>
@@ -80,7 +81,17 @@ function getTodoItems($fk_user)
                         }
                         ?>
                         <a href="quadro_de_tarefas.php?del_task=<?php echo $row['id_tarefa'] ?>"><i class="fas fa-trash-alt"></i></a>
-                        <a href="quadro_de_tarefas.php?edit=<?php echo $row['id_tarefa'] ?>"><i class="fas fa-pen"></i></a>
+
+                        <?php
+                        if ($row['finalizado'] == "sim") { ?>
+                            <a href="#"><i class="fas fa-pen disabled"></i></a>
+                        <?php
+                        } else { ?>
+                            <a href="quadro_de_tarefas.php?edit=<?php echo $row['id_tarefa'] ?>"><i class="fas fa-pen"></i></a>
+                        <?php
+                        }
+                        ?>
+
                     </div>
                 </div>
             </form>
