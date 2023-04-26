@@ -61,6 +61,7 @@ function getTodoItems($fk_user)
 
             <form method='POST'>
                 <div class="card-content-task">
+
                     <?php
                     if ($row['finalizado'] == "sim") { ?>
                         <label class="finish"><?php echo $row['tarefa']; ?></label>
@@ -95,9 +96,16 @@ function getTodoItems($fk_user)
                     </div>
                 </div>
             </form>
-<?php
+        <?php
         }
         return $row;
+    } else { ?>
+        <div class="message-no">
+            <i class="fas fa-exclamation-circle"></i>
+            <span class="text-no-task">Opa, você não possui nenhuma tarefa criada.</br> Que tal criar uma para organizar o seu dia?</span>
+        </div>
+
+<?php
     };
     mysqli_close($conn);
 }

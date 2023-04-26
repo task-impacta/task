@@ -190,3 +190,19 @@ label {
 .disabled {
     color: #ccc !important;
 }
+.message-no {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 32px !important;
+    height: 160px !important;
+}
+
+.fa-exclamation-circle {
+    font-size: 52px !important;
+}
+.text-no-task {
+    text-align: center !important;
+    color: #5d5d5d !important;
+}
