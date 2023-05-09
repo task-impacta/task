@@ -30,6 +30,21 @@ if (isset($_GET['unfineshed'])) {
     mysqli_close($conn);
 }
 
+// Editar tarefa
+if (isset($_GET['nova_tarefa'])) {
+    $id_tarefa = $_GET['id_tarefa'];
+
+    $tarefa_atualizada = $_GET['nova_tarefa'];
+
+    $conn = connectdatabase();
+    $sql = "UPDATE tarefas SET tarefa = '$tarefa_atualizada' WHERE (id_tarefa = '" . $id_tarefa . "')";
+    $result = mysqli_query($conn, $sql);
+
+    header('Location: quadro_de_tarefas.php');
+    mysqli_close($conn);
+}
+
+
 function connectdatabase()
 {
     return mysqli_connect("database-2.cxom7witog2x.us-east-2.rds.amazonaws.com", "Admin", "1020304050", "quadro_de_tarefas");
@@ -59,15 +74,28 @@ function getTodoItems($fk_user)
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) { ?>
 
-            <form method='POST'>
+            <div class="form">
+
                 <div class="card-content-task">
 
                     <?php
                     if ($row['finalizado'] == "sim") { ?>
-                        <label class="finish"><?php echo $row['tarefa']; ?></label>
+                        <span class="finish"><?php echo $row['tarefa']; ?></span>
                     <?php
                     } else { ?>
-                        <label><?php echo $row['tarefa']; ?></label>
+                        <div class="content-task">
+                            <span id="span-task" class="task-added" data-toggle="tooltip" data-placement="bottom" title="<?php echo $row['tarefa']; ?>">
+                                <?php echo $row['tarefa']; ?>
+                            </span>
+
+
+                            <form id="input-task" class="edit-task" action="quadro_de_tarefas.php" method="GET">
+                                <input type="text" value="<?php echo $row['tarefa']; ?>" name="nova_tarefa" id='tarefa' />
+                                <input type="hidden" name="id_tarefa" value="<?php echo $row['id_tarefa']; ?>" class="id" />
+                                <button type="submit" class="confirm-edit"><i class="fas fa-check check"></i></button>
+                                <i class="fas fa-times close-task"></i>
+                            </form>
+                        </div>
                     <?php } ?>
 
                     <div class="card-content-task-icon">
@@ -85,17 +113,16 @@ function getTodoItems($fk_user)
 
                         <?php
                         if ($row['finalizado'] == "sim") { ?>
-                            <a href="#"><i class="fas fa-pen disabled"></i></a>
+                            <i class="fas fa-pen disabled"></i>
                         <?php
                         } else { ?>
-                            <a href="quadro_de_tarefas.php?edit=<?php echo $row['id_tarefa'] ?>"><i class="fas fa-pen"></i></a>
+                            <a id="editar" data-value="<?php echo $row['id_tarefa']; ?>"><i class="fas fa-pen"></i></a>
                         <?php
                         }
                         ?>
-
                     </div>
                 </div>
-            </form>
+            </div>
         <?php
         }
         return $row;

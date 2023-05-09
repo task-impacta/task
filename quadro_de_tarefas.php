@@ -28,6 +28,10 @@ if (isset($_POST['addtask'])) {
     <link rel="stylesheet" href="to-do.css">
     <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="http://localhost/ProjetoFinalADS/task/edit_task.js" defer></script>
+
+
     <title>Quadro de tarefas</title>
 </head>
 
