@@ -44,7 +44,7 @@ if (isset($_POST['addtask'])) {
         <header class="card-header">
             <h2 class="card-header-title">Olá, <?php echo $_SESSION['nome']; ?>! O que você quer fazer hoje? </h2>
 
-            <form method="POST">
+            <form method="POST" class="form-header">
                 <input type="text" name="tarefa" class="new-task" placeholder="Escreva o que você quer fazer..." />
                 <button type="submit" value="incluir" name="addtask" class="add-task">Criar tarefa</button>
             </form>

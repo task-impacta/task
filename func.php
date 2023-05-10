@@ -92,8 +92,10 @@ function getTodoItems($fk_user)
                             <form id="input-task" class="edit-task" action="quadro_de_tarefas.php" method="GET">
                                 <input type="text" value="<?php echo $row['tarefa']; ?>" name="nova_tarefa" id='tarefa' />
                                 <input type="hidden" name="id_tarefa" value="<?php echo $row['id_tarefa']; ?>" class="id" />
-                                <button type="submit" class="confirm-edit"><i class="fas fa-check check"></i></button>
-                                <i class="fas fa-times close-task"></i>
+                                <div class="button-actions">
+                                    <button type="submit" class="confirm-edit"><i class="fas fa-check check"></i></button>
+                                    <i class="fas fa-times close-task"></i>
+                                </div>
                             </form>
                         </div>
                     <?php } ?>
@@ -113,7 +115,7 @@ function getTodoItems($fk_user)
 
                         <?php
                         if ($row['finalizado'] == "sim") { ?>
-                            <i class="fas fa-pen disabled"></i>
+                            <a><i class="fas fa-pen disabled"></i></a>
                         <?php
                         } else { ?>
                             <a id="editar" data-value="<?php echo $row['id_tarefa']; ?>"><i class="fas fa-pen"></i></a>
