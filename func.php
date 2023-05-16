@@ -30,7 +30,7 @@ if (isset($_GET['unfineshed'])) {
     mysqli_close($conn);
 }
 
-// Editar tarefa
+// Editar tarefa // teste
 if (isset($_GET['nova_tarefa'])) {
     $id_tarefa = $_GET['id_tarefa'];
 
