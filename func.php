@@ -30,7 +30,7 @@ if (isset($_GET['unfineshed'])) {
     mysqli_close($conn);
 }
 
-// Editar tarefa // teste
+// Editar tarefa
 if (isset($_GET['nova_tarefa'])) {
     $id_tarefa = $_GET['id_tarefa'];
 
@@ -111,7 +111,10 @@ function getTodoItems($fk_user)
                         <?php
                         }
                         ?>
-                        <a href="quadro_de_tarefas.php?del_task=<?php echo $row['id_tarefa'] ?>"><i class="fas fa-trash-alt"></i></a>
+                            
+                            <button id="deletar" class="btn-trash">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
 
                         <?php
                         if ($row['finalizado'] == "sim") { ?>

@@ -29,8 +29,11 @@ if (isset($_POST['addtask'])) {
     <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="http://localhost/ProjetoFinalADS/task/edit_task.js" defer></script>
-
+    <script src="http://localhost/task/edit_task.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.0.6/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@8.0.6/dist/sweetalert2.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://localhost/task/choice_delete.js"></script>
 
     <title>Quadro de tarefas</title>
 </head>
@@ -54,6 +57,7 @@ if (isset($_POST['addtask'])) {
             <?php
             getTodoItems($_SESSION['fk_user']);
             ?>
+            <a id= "teste" href="quadro_de_tarefas.php?del_task=<?php echo $row['id_tarefa'] ?>"></a>
         </article>
     </div>
 </body>
