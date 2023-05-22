@@ -21,6 +21,7 @@ body {
     border: none;
     margin: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 .btn-logout {
@@ -272,6 +273,12 @@ i.check:hover {
     margin-left: 8px;
 }
 
+.align {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
     .card-header, .card-content, .content {
         padding: 30px;
@@ -294,4 +301,29 @@ i.check:hover {
         width: 100%;
         margin-left: 0;
     }
+}
+
+
+/* Icons sweet alert */ 
+.swal2-icon-text {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip] {
+    left: 9px !important;
+}
+
+.swal2-icon.swal2-success [class^=swal2-success-line][class$=long] {
+    top: 42px !important;
+    left: 22px  !important;
+}
+.swal2-x-mark-line-right {
+    top: 37px !important;
+    right: 13px !important;
+}
+.swal2-x-mark-line-left {
+    top: 38px !important;
+    left: 13px !important;
 }

@@ -103,25 +103,25 @@ function getTodoItems($fk_user)
                     <div class="card-content-task-icon">
                         <?php
                         if ($row['finalizado'] == "sim") { ?>
-                            <a href="quadro_de_tarefas.php?unfineshed=<?php echo $row['id_tarefa'] ?>"><i class="fas fa-check-circle"></i></a>
+                            <a href="quadro_de_tarefas.php?unfineshed=<?php echo $row['id_tarefa'] ?>" class="align"><i class="fas fa-check-circle"></i></a>
 
                         <?php
                         } else { ?>
-                            <a href="quadro_de_tarefas.php?finish=<?php echo $row['id_tarefa'] ?>"><i class="far fa-circle"></i></a>
+                            <a href="quadro_de_tarefas.php?finish=<?php echo $row['id_tarefa'] ?>" class="align"><i class="far fa-circle"></i></a>
                         <?php
                         }
                         ?>
-                            
-                            <button id="deletar" class="btn-trash">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
+
+                        <button id="deletar" class="btn-trash" type="submit" data-value="<?php echo $row['id_tarefa']; ?>">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
 
                         <?php
                         if ($row['finalizado'] == "sim") { ?>
-                            <a><i class="fas fa-pen disabled"></i></a>
+                            <a class="align"><i class="fas fa-pen disabled"></i></a>
                         <?php
                         } else { ?>
-                            <a id="editar" data-value="<?php echo $row['id_tarefa']; ?>"><i class="fas fa-pen"></i></a>
+                            <a id="editar" data-value="<?php echo $row['id_tarefa']; ?>" class="align"><i class="fas fa-pen"></i></a>
                         <?php
                         }
                         ?>
