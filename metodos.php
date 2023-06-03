@@ -1,8 +1,8 @@
 <?php
 
 // Excluir tarefas
-if (isset($_GET['del_task'])) {
-    $id_tarefa = $_GET['del_task'];
+if (isset($_GET['excluirTarefa'])) {
+    $id_tarefa = $_GET['excluirTarefa'];
 
     $conn = connectdatabase();
     $sql = "DELETE FROM tarefas WHERE (id_tarefa = '" . $id_tarefa . "');";
@@ -11,8 +11,8 @@ if (isset($_GET['del_task'])) {
 }
 
 // Marcar tarefas como concluída
-if (isset($_GET['finish'])) {
-    $id_tarefa = $_GET['finish'];
+if (isset($_GET['concluirTarefa'])) {
+    $id_tarefa = $_GET['concluirTarefa'];
 
     $conn = connectdatabase();
     $sql = "UPDATE tarefas SET finalizado = 'sim' WHERE (id_tarefa = '" . $id_tarefa  . "');";
@@ -21,8 +21,8 @@ if (isset($_GET['finish'])) {
 }
 
 // Desmarcar tarefas como concluída 
-if (isset($_GET['unfineshed'])) {
-    $id_tarefa = $_GET['unfineshed'];
+if (isset($_GET['removerConcluir'])) {
+    $id_tarefa = $_GET['removerConcluir'];
 
     $conn = connectdatabase();
     $sql = "UPDATE tarefas SET finalizado = 'nao' WHERE (id_tarefa = '" . $id_tarefa  . "');";
@@ -63,7 +63,7 @@ function error()
     }
 }
 
-function getTodoItems($fk_user)
+function listarTarefas($fk_user)
 {
 
     $conn = connectdatabase();
@@ -103,11 +103,11 @@ function getTodoItems($fk_user)
                     <div class="card-content-task-icon">
                         <?php
                         if ($row['finalizado'] == "sim") { ?>
-                            <a href="quadro_de_tarefas.php?unfineshed=<?php echo $row['id_tarefa'] ?>" class="align"><i class="fas fa-check-circle"></i></a>
+                            <a href="quadro_de_tarefas.php?removerConcluir=<?php echo $row['id_tarefa'] ?>" class="align"><i class="fas fa-check-circle"></i></a>
 
                         <?php
                         } else { ?>
-                            <a href="quadro_de_tarefas.php?finish=<?php echo $row['id_tarefa'] ?>" class="align"><i class="far fa-circle"></i></a>
+                            <a href="quadro_de_tarefas.php?concluirTarefa=<?php echo $row['id_tarefa'] ?>" class="align"><i class="far fa-circle"></i></a>
                         <?php
                         }
                         ?>
@@ -142,7 +142,7 @@ function getTodoItems($fk_user)
     mysqli_close($conn);
 }
 
-function addTodoItem($fk_user, $todo_text)
+function adicionarTarefa($fk_user, $todo_text)
 {
     $conn = connectdatabase();
     $sql = "INSERT INTO tarefas (tarefa, finalizado, fk_user) VALUES ('" . $todo_text . "','nao','" . $fk_user . "');";

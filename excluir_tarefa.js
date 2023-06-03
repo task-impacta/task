@@ -16,8 +16,8 @@ $(document).ready(function () {
     }).then((result) => {
       if (result.value) {
         $.ajax({
-          method: "GET",
-          url: "quadro_de_tarefas.php?del_task=" + id_tarefa,
+          method: "DELETE",
+          url: "quadro_de_tarefas.php?excluirTarefa=" + id_tarefa,
         });
         Swal.fire(
           "Tarefa deletada!",

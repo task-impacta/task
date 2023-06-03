@@ -2,15 +2,15 @@
 session_start();
 include('conexao.php');
 include('verifica_login.php');
-include('func.php');
+include('metodos.php');
 
 if (!loggedin()) {
-    header("location:login.php");
+    header("location:fazerLogin.php");
 }
 
 if (isset($_POST['addtask'])) {
     if (!empty($_POST['tarefa'])) {
-        addTodoItem($_SESSION['fk_user'], $_POST['tarefa']);
+        adicionarTarefa($_SESSION['fk_user'], $_POST['tarefa']);
         header("Refresh:0");
     }
 }
@@ -25,7 +25,7 @@ if (isset($_POST['addtask'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="to-do.css">
+    <link rel="stylesheet" href="quadro_de_tarefas.css">
     <!-- font-awesome -->
     <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous" rel="stylesheet">
 
@@ -38,17 +38,15 @@ if (isset($_POST['addtask'])) {
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@8.0.6/dist/sweetalert2.min.css" rel="stylesheet" />
 
     <!-- javascript -->
-    <!-- <script src="http://localhost/ProjetoFinalADS/task/edit_task.js" defer></script> -->
-    <!-- <script src="http://localhost/ProjetoFinalADS/task/choice_delete.js"></script> -->
-    <script src="../task/edit_task.js" defer></script>
-    <script src="../task/choice_delete.js" defer></script>
+    <script src="../task/editar_tarefa.js"></script>
+    <script src="../task/excluir_tarefa.js"></script>
 
     <title>Quadro de tarefas</title>
 </head>
 
 <body>
     <div class="position-btn">
-        <a href="logout.php" class="btn-logout">Sair</a>
+        <a href="fazer_logout.php" class="btn-logout">Sair</a>
     </div>
 
     <div class="content">
@@ -63,7 +61,7 @@ if (isset($_POST['addtask'])) {
         <article class="card-content">
             <h2 class="card-content-title">Lista de tarefas a fazer:</h2>
             <?php
-            getTodoItems($_SESSION['fk_user']);
+            listarTarefas($_SESSION['fk_user']);
             ?>
         </article>
     </div>

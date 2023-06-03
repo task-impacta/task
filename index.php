@@ -43,7 +43,7 @@ session_start();
     unset($_SESSION['nao_autenticado']);
     ?>
 
-    <form action="login.php" method="POST">
+    <form action="fazer_login.php" method="POST">
       <fieldset>
         <legend>Email:*</legend>
         <input type="text" name="email" id="email" minlength="3" required />

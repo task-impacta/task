@@ -36,7 +36,7 @@ session_start();
         });
       </script>
       <?php
-      header("refresh:3;URL=login.php");
+      header("refresh:3;URL=fazer_login.php");
       ?>
     <?php
       unset($_SESSION['status_cadastro']);
@@ -62,7 +62,7 @@ session_start();
     unset($_SESSION['usuario_existe']);
     ?>
 
-    <form method="POST" action="cadastrar.php">
+    <form method="POST" action="cadastrar_usuario.php">
 
       <h2>Preencha os campos necessários para se cadastrar</h2>
 
